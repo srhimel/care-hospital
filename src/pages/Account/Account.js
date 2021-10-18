@@ -6,7 +6,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 
 const Account = () => {
-    const { setError, googleSignIn, setIsloading } = useFirebase();
+    const { user, setError, googleSignIn, setIsloading } = useFirebase();
     const [toggle, setToggle] = useState('login');
     const handleToggle = () => {
         toggle === 'login' ? setToggle('register') : setToggle('login');
@@ -18,9 +18,13 @@ const Account = () => {
             .catch(error => setError(error.message))
             .finally(() => setIsloading(false));
     }
+    // redirect user to homepage if logged in
+    if (user?.email) {
+        history.push('/')
+    }
     return (
-        <div className="flex justify-center min-h-screen bg-gray-100">
-            <div className="container sm:mt-10 mt-12 my-auto max-w-md border-2 border-gray-200 p-3 bg-white">
+        <div className="flex justify-center min-h-screen bg-gray-100 pb-12">
+            <div className=" container sm:mt-10 mt-12 my-auto max-w-md border-2 border-gray-200 p-3 bg-white">
 
                 <div className="text-center my-6">
                     <h1 className="text-3xl font-semibold text-gray-700">{toggle === 'login' ? "Sign In" : 'Sign Up'}</h1>
