@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../../logo.png';
 import { FcMenu } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
 const Header = () => {
     const [show, setShow] = useState('hidden');
@@ -32,10 +32,10 @@ const Header = () => {
                     <div className=" md:w-3/5 w-full md:order-2 order-3">
                         <nav className={showMenu + " md:block"}>
                             <ul className="navbar md:flex gap-10 justify-center">
-                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><a href="/" className="hover:text-purple-600 block nav-link">Home</a></li>
-                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><a href="/" className="hover:text-purple-600 block nav-link">Blog</a></li>
-                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><a href="/" className="hover:text-purple-600 block nav-link">Services</a></li>
-                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 pb-3"><a href="/" className="hover:text-purple-600 block nav-link">Contact</a></li>
+                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} exact to="/" className="hover:text-purple-600 block nav-link">Home</NavLink></li>
+                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/about-us" className="hover:text-purple-600 block nav-link">About Us</NavLink></li>
+                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/services" className="hover:text-purple-600 block nav-link">Services</NavLink></li>
+                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 pb-3"><NavLink activeClassName={'text-purple-600'} to="/contact-us" className="hover:text-purple-600 block nav-link">Contact Us</NavLink></li>
                             </ul>
                         </nav>
                     </div>

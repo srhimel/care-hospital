@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Home = () => {
+const NotFound = () => {
     return (
         <div>
-            THIS IS homepage
+            404 error
         </div>
     );
 };
 
-export default Home;
+export default NotFound;
