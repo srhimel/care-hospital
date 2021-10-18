@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FcCancel } from 'react-icons/fc';
 import { useHistory, useLocation } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 const Register = () => {
+    // react hook form 
+
     const {
         register,
         handleSubmit,
+        watch,
         formState: { errors }
     } = useForm();
+    const password = useRef({});
+    password.current = watch("password", "");
+
+
     const { emailSignUp, error, setError, setIsloading } = useAuth();
 
     const history = useHistory();
@@ -28,21 +35,59 @@ const Register = () => {
 
 
     };
+    const inputClass = "w-full px-3 py-2 placeholder-gray-300 border rounded-md focus:outline-none focus:ring ";
+    const inputClassNormal = " focus:ring-indigo-100 focus:border-indigo-300 border-gray-300";
+    const inputClassError = " focus:ring-red-100 focus:border-red-300 border-red-300";
     return (
 
         <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6">
-                <label htmlFor="email" className="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-                <input {...register("email", { required: true, pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/ })} type="email" name="email" id="email" placeholder="Your email address" className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                {errors.email && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> Not a valid email address </p>}
+                <label htmlFor="email" className="block mb-2 text-sm text-gray-600">Email Address</label>
+                <input
+                    {...register('email', {
+                        required: "You must enter your email",
+                        pattern: {
+                            value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                            message: "Email is invalid!"
+                        }
+                    })}
+
+
+                    type="email" id="email" placeholder="Your email address" className={!errors.email ? inputClass + inputClassNormal : inputClass + inputClassError} />
+                {errors.email && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors.email.message} </p>}
             </div>
             <div className="mb-6">
                 <div className="flex justify-between mb-2">
-                    <label htmlFor="password" className="text-sm text-gray-600 dark:text-gray-400">Password</label>
+                    <label htmlFor="password" className="text-sm text-gray-600">Password</label>
 
                 </div>
-                <input {...register("password", { required: true, minLength: 8, pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/ })} type="password" name="password" id="password" placeholder="Your password" className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                {errors.password && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> Password is not Strong!   </p>}
+                <input
+                    {...register('password', {
+                        required: "You must specify a password",
+                        minLength: {
+                            value: 8,
+                            message: "Password must have at least 8 characters"
+                        },
+                        pattern: {
+                            value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
+                            message: "Password is not strong!"
+                        }
+                    })}
+                    type="password" id="password" placeholder="Your password" className={!errors.password ? inputClass + inputClassNormal : inputClass + inputClassError} />
+                {errors.password && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors.password.message}   </p>}
+            </div>
+            <div className="mb-6">
+                <div className="flex justify-between mb-2">
+                    <label htmlFor="rePassword" className="text-sm text-gray-600">Repeat Password</label>
+
+                </div>
+                <input
+                    {...register('password_repeat', {
+                        validate: value =>
+                            value === password.current || "The passwords do not match"
+                    })}
+                    type="password" id="rePassword" placeholder="Repeat Your password" className={!errors.password ? inputClass + inputClassNormal : inputClass + inputClassError} />
+                {errors.password_repeat && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors.password_repeat.message}  </p>}
             </div>
 
             {error && <div className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 flex items-center gap-2">

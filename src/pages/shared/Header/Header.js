@@ -36,6 +36,7 @@ const Header = () => {
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/about-us" className="hover:text-purple-600 block nav-link">About Us</NavLink></li>
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/services" className="hover:text-purple-600 block nav-link">Services</NavLink></li>
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 pb-3"><NavLink activeClassName={'text-purple-600'} to="/contact-us" className="hover:text-purple-600 block nav-link">Contact Us</NavLink></li>
+                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 pb-3"><NavLink activeClassName={'text-purple-600'} to="/404-error" className="hover:text-purple-600 block nav-link">404 Error Page</NavLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -44,13 +45,16 @@ const Header = () => {
                             <div className=" flex gap-1 items-center">
                                 {
                                     !user?.email ? <>
-                                        <Link className="ml-auto" to="/account"><button as className="px-3 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out font-medium text-sm">Sign Up/Sign In</button></Link>
+                                        <Link className="ml-auto" to="/account"><button as className="px-3 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out font-medium text-sm">Sign Up/Sign In</button>
+
+                                        </Link>
 
                                     </> : <>
 
-                                        <button type="button" className=" ml-auto bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={handleToggle}>
+                                        <button type="button" className="relative ml-auto bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={handleToggle}>
                                             <span className="sr-only">Open user menu</span>
                                             <img className="h-8 w-8 rounded-full" src={user.photoURL} alt="" />
+                                            <span class="animate-ping absolute inline-flex h-2 w-2 -top-0 -right-0 rounded-full bg-green-700 "></span>
                                         </button></>
                                 }
 

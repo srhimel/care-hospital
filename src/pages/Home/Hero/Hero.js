@@ -7,7 +7,7 @@ const Hero = () => {
                 <div className="flex items-center gap-3">
                     <div className="w-3/5 -mt-10">
                         <p className="font-semibold md:text-2xl text-md text-indigo-500 md:mb-4 mb-1">We Provide All Health Care Solution </p>
-                        <h2 className="lg:text-6xl md:text-4xl sm:text-3xl text-2xl font-bold text-indigo-800 font-serif">Protect Your Health And Take Care To Of Your Health</h2>
+                        <h2 className="lg:text-6xl md:text-4xl sm:text-3xl text-2xl font-bold text-indigo-800 ">Protect Your Health And Take Care To Of Your Health</h2>
                         <button className="bg-yellow-600 hover:bg-yellow-700 transition-all text-white md:px-5 rounded-md px-3 md:py-3 py-1 md:text-base text-sm inline-block md:mt-8 mt-3">Book Appointment Now</button>
                     </div>
                     <div className="w-2/5">
