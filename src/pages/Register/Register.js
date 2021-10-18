@@ -1,6 +1,6 @@
 import React from 'react';
 import { FcCancel } from 'react-icons/fc';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 const Register = () => {
@@ -12,10 +12,12 @@ const Register = () => {
     const { emailSignUp, error, setError, setIsloading } = useAuth();
 
     const history = useHistory();
+    const location = useLocation();
+    const redirectUrl = location.state?.from || '/';
     const onSubmit = (data) => {
         emailSignUp(data.email, data.password)
             .then(() => {
-                history.push('/');
+                history.push(redirectUrl);
             })
             .catch((error) => {
                 setError(error.message);

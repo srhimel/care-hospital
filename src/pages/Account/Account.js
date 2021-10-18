@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import useFirebase from '../../hooks/useFirebase';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
@@ -12,9 +12,11 @@ const Account = () => {
         toggle === 'login' ? setToggle('register') : setToggle('login');
     }
     const history = useHistory();
+    const location = useLocation();
+    const redirectUrl = location.state?.from || '/';
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(() => history.push('/'))
+            .then(() => history.push(redirectUrl))
             .catch(error => setError(error.message))
             .finally(() => setIsloading(false));
     }
@@ -36,7 +38,7 @@ const Account = () => {
                     <p className="text-sm text-center text-gray-400 mb-4">
                         {toggle === 'login' ? "Don't have an account? " : 'Already have an account? '}
 
-                        <a href="#!" className="font-semibold" onClick={handleToggle}>{toggle === 'login' ? <span className="text-indigo-500">Sign Up</span> : <span className="text-green-500">Sign In</span>}</a>.
+                        <span className="font-semibold cursor-pointer" onClick={handleToggle}>{toggle === 'login' ? <span className="text-indigo-500">Sign Up</span> : <span className="text-green-500">Sign In</span>}</span>.
 
 
 
