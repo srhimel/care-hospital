@@ -3,13 +3,13 @@ import logo from '../../../logo.png';
 const Footer = () => {
     return (
         <>
-            <div className=" bg-indigo-50 pb-12">
+            <div className=" bg-indigo-50 pb-12 border-t-2">
                 <div className="mx-auto container pt-10 lg:pt-12 flex flex-col items-center justify-center">
                     <div>
                         <img src={logo} alt="" />
                     </div>
                     <div className="text-black flex flex-col md:items-center f-f-l pt-3">
-                        <h1 className="text-2xl font-black">Health. Care. Hospitality.</h1>
+                        <h1 className="text-2xl text-indigo-700 font-bold">Health. Care. Hospitality.</h1>
                         <div className="md:flex items-center mt-5 md:mt-10 text-base text-color f-f-l">
                             <h2 className=" md:mr-6 pb-4 md:py-0 cursor-pointer">Download Now</h2>
                             <h2 className="cursor-pointer">License</h2>

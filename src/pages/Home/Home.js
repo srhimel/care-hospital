@@ -1,7 +1,8 @@
 import React from 'react';
 import useServices from '../../hooks/useService';
 import Service from '../Services/Service/Service';
-import Footer from '../shared/Footer/Footer';
+import AboutSection from '../shared/AboutSection/AboutSection';
+import Doctors from '../shared/Doctors/Doctors';
 
 import Hero from './Hero/Hero';
 
@@ -10,6 +11,8 @@ const Home = () => {
     return (
         <div>
             <Hero />
+
+            {/* Service Area  */}
             <div className="py-14 text-center">
                 <h2 className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl font-bold text-indigo-800 ">Our Services</h2>
                 <p className="mt-3 font-base md:text-xl text-md text-indigo-500 md:mb-4 mb-1 max-w-lg mx-auto">We care for your health. Take our exclusive service and get free health.</p>
@@ -22,7 +25,10 @@ const Home = () => {
                 </div>
 
             </div>
-            <Footer />
+            {/* Doctor Area  */}
+            <Doctors />
+            <AboutSection />
+
         </div>
     );
 };

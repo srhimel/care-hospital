@@ -11,6 +11,7 @@ import Contact from './pages/Contact/Contact';
 import AuthProvider from './context/AuthContext';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import ServiceDetails from './pages/ServiceDetails/ServiceDetails';
+import Footer from './pages/shared/Footer/Footer';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </AuthProvider>
   );

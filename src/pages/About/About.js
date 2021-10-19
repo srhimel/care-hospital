@@ -1,9 +1,13 @@
 import React from 'react';
+import AboutSection from '../shared/AboutSection/AboutSection';
+import Doctors from '../shared/Doctors/Doctors';
 
 const About = () => {
     return (
         <div>
-            This i s about
+            <AboutSection>
+            </AboutSection>
+            <Doctors />
         </div>
     );
 };
