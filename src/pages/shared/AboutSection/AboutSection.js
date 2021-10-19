@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
     return (
@@ -18,7 +19,7 @@ const AboutSection = () => {
                             <p className="border border-red-300 p-4 rounded-md text-xl font-semibold text-red-700">Best Professionals</p>
                             <p className="border border-purple-300 p-4 rounded-md text-xl font-semibold text-purple-700">Mediacal TReatment</p>
                         </div>
-                        <button className="bg-indigo-600 hover:bg-indigo-700 transition-all text-white md:px-5 rounded-md px-3 md:py-3 py-1 md:text-base text-sm inline-block md:mt-8 mt-3">Contact Us</button>
+                        <Link to="/contact-us" className="bg-indigo-600 hover:bg-indigo-700 transition-all text-white md:px-5 rounded-md px-3 md:py-3 py-1 md:text-base text-sm inline-block md:mt-8 mt-3">Contact Us</Link>
                     </div>
 
                 </div>

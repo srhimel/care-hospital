@@ -23,18 +23,18 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about-us">
+          <PrivateRoute path="/about-us">
             <About />
-          </Route>
+          </PrivateRoute>
           <Route path="/services">
             <Services />
           </Route>
           <PrivateRoute path="/service/:serviceId">
             <ServiceDetails />
           </PrivateRoute>
-          <Route path="/contact-us">
+          <PrivateRoute path="/contact-us">
             <Contact />
-          </Route>
+          </PrivateRoute>
           <Route path="/account">
             <Account />
           </Route>

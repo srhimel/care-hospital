@@ -33,8 +33,9 @@ const Header = () => {
                         <nav className={showMenu + " md:block"}>
                             <ul className="navbar md:flex gap-10 justify-center">
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} exact to="/" className="hover:text-purple-600 block nav-link">Home</NavLink></li>
-                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/about-us" className="hover:text-purple-600 block nav-link">About Us</NavLink></li>
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/services" className="hover:text-purple-600 block nav-link">Services</NavLink></li>
+                                <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 md:border-0 border-b-2"><NavLink activeClassName={'text-purple-600'} to="/about-us" className="hover:text-purple-600 block nav-link">About Us</NavLink></li>
+
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 pb-3"><NavLink activeClassName={'text-purple-600'} to="/contact-us" className="hover:text-purple-600 block nav-link">Contact Us</NavLink></li>
                                 <li onClick={handleToggleMenu} className="nav-item font-medium md:p-0 py-1 pb-3"><NavLink activeClassName={'text-purple-600'} to="/404-error" className="hover:text-purple-600 block nav-link">404 Error Page</NavLink></li>
                             </ul>
