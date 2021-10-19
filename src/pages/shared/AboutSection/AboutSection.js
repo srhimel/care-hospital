@@ -9,7 +9,7 @@ const AboutSection = () => {
                         <img src="https://i.ibb.co/VmLDkHT/about.png" alt="" />
                     </div>
                     <div className="about-info">
-                        <p className="text-xl font-bold text-yellow-600">About Us </p>
+                        <p className="text-xl font-bold text-yellow-600">We are here </p>
                         <p className="text-indigo-700 font-bold md:text-4xl sm:text-2xl text-xl my-4">The Great Place Of Medical Hospital Center</p>
                         <p>We provide the special tips and advice’s of heath care treatment and high level of best technology involve in the our hospital.</p>
                         <div className="about-tiks grid md:grid-cols-2 grid-cols-1 gap-7 mt-7">
