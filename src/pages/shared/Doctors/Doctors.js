@@ -12,7 +12,7 @@ const Doctors = () => {
                 <div className="doctors grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
 
                     <div className="doctor text-center py-10 px-5 hover:bg-white border rounded-3xl">
-                        <img className="rounded-full w-2/3 mx-auto my-4" src="http://meditro.themetrades.com/html/demo/images/team/member1.jpg" alt="" />
+                        <img className="rounded-full w-2/3 mx-auto my-4" src="https://i.ibb.co/gj9sBDG/member1.jpg" alt="" />
                         <h4 className="text-indigo-700 font-bold md:text-3xl sm:text-2xl text-xl mb-1">Dr. Jason Mamua</h4>
                         <p className="text-lg font-bold text-yellow-600 mb-4">Cardiologiest</p>
                         <div className="socail flex justify-center gap-3 text-xl text-white">
@@ -22,7 +22,7 @@ const Doctors = () => {
                         </div>
                     </div>
                     <div className="doctor text-center py-10 px-5 bg-white border rounded-3xl md:transform md:-translate-y-10">
-                        <img className="rounded-full w-2/3 mx-auto my-4" src="http://meditro.themetrades.com/html/demo/images/team/member2.jpg" alt="" />
+                        <img className="rounded-full w-2/3 mx-auto my-4" src="https://i.ibb.co/19FTY3P/member2.jpg" alt="" />
                         <h4 className="text-indigo-700 font-bold md:text-3xl sm:text-2xl text-xl mb-1">Dr. Sheikh Hasina</h4>
                         <p className="text-lg font-bold text-yellow-600 mb-4">Dentist</p>
                         <div className="socail flex justify-center gap-3 text-xl text-white">
@@ -32,7 +32,7 @@ const Doctors = () => {
                         </div>
                     </div>
                     <div className="doctor text-center py-10 px-5 hover:bg-white border rounded-3xl">
-                        <img className="rounded-full w-2/3 mx-auto my-4" src="http://meditro.themetrades.com/html/demo/images/team/member3.jpg" alt="" />
+                        <img className="rounded-full w-2/3 mx-auto my-4" src="https://i.ibb.co/16nd3P6/member3.jpg" alt="" />
                         <h4 className="text-indigo-700 font-bold md:text-3xl sm:text-2xl text-xl mb-1">Dr. Tarek Zia</h4>
                         <p className="text-lg font-bold text-yellow-600 mb-4">Therapist</p>
                         <div className="socail flex justify-center gap-3 text-xl text-white">
@@ -41,6 +41,8 @@ const Doctors = () => {
                             <div className="cursor-pointer hover:bg-indigo-700 transition-all h-10 w-10 bg-indigo-600 rounded-xl flex justify-center items-center"><BsInstagram /> </div>
                         </div>
                     </div>
+
+
 
 
                 </div>
