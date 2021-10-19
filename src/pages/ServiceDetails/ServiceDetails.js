@@ -14,7 +14,7 @@ const ServiceDetails = () => {
 
     }, [serviceId, services]);
 
-    const { service, img, info } = serviceDetails;
+    const { title, img, info } = serviceDetails;
     return (
 
         <div>
@@ -22,7 +22,7 @@ const ServiceDetails = () => {
                 <div className="md:flex gap-10">
                     <div className="md:w-2/3">
                         <img src={img} alt="" className="rounded-3xl" />
-                        <p className="text-2xl font-bold text-indigo-700 my-4">{service}</p>
+                        <p className="text-2xl font-bold text-indigo-700 my-4">{title}</p>
                         <p>{info}</p>
                     </div>
                     <div className="md:w-1/3 md:mt-0 mt-10">

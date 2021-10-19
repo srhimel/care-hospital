@@ -11,7 +11,7 @@ const Hero = () => {
                         <button className="bg-yellow-600 hover:bg-yellow-700 transition-all text-white md:px-5 rounded-md px-3 md:py-3 py-1 md:text-base text-sm inline-block md:mt-8 mt-3">Book Appointment Now</button>
                     </div>
                     <div className="w-2/5">
-                        <img className="animate-bounce" src="http://meditro.themetrades.com/html/demo/images/main-banner/doctor.png" alt="" />
+                        <img className="animate-bounce" src="https://i.ibb.co/YTNVC4Z/doctor.png" alt="" />
                     </div>
 
                 </div>
