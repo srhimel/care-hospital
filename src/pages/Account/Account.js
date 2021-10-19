@@ -16,7 +16,10 @@ const Account = () => {
     const redirectUrl = location.state?.from || '/';
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(() => history.push(redirectUrl))
+            .then(() => {
+                history.push(redirectUrl)
+                setError(null);
+            })
             .catch(error => setError(error.message))
             .finally(() => setIsloading(false));
     }

@@ -22,9 +22,10 @@ const Register = () => {
     const location = useLocation();
     const redirectUrl = location.state?.from || '/';
     const onSubmit = (data) => {
-        emailSignUp(data.email, data.password)
+        emailSignUp(data.email, data.password, data.name, data.photo)
             .then(() => {
                 history.push(redirectUrl);
+                setError(null);
             })
             .catch((error) => {
                 setError(error.message);
@@ -42,6 +43,29 @@ const Register = () => {
 
         <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6">
+                <label htmlFor="name" className="block mb-2 text-sm text-gray-600">Full Name</label>
+                <input
+                    {...register('name', {
+                        required: "You must enter your Name",
+                        minLength: {
+                            value: 3,
+                            message: "Name should be at least 3 characters"
+                        },
+                    })}
+
+
+                    type="text" id="name" placeholder="Your Full Name" className={!errors.name ? inputClass + inputClassNormal : inputClass + inputClassError} />
+                {errors?.name && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors?.name?.message} </p>}
+            </div>
+            <div className="mb-6">
+                <label htmlFor="photo" className="block mb-2 text-sm text-gray-600">Photo Url</label>
+                <input
+                    {...register('photo')}
+
+
+                    type="url" id="photo" placeholder="Due to limited technology we need url " className={!errors.photo ? inputClass + inputClassNormal : inputClass + inputClassError} />
+            </div>
+            <div className="mb-6">
                 <label htmlFor="email" className="block mb-2 text-sm text-gray-600">Email Address</label>
                 <input
                     {...register('email', {
@@ -54,7 +78,7 @@ const Register = () => {
 
 
                     type="email" id="email" placeholder="Your email address" className={!errors.email ? inputClass + inputClassNormal : inputClass + inputClassError} />
-                {errors.email && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors.email.message} </p>}
+                {errors?.email && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors?.email?.message} </p>}
             </div>
             <div className="mb-6">
                 <div className="flex justify-between mb-2">
@@ -74,7 +98,7 @@ const Register = () => {
                         }
                     })}
                     type="password" id="password" placeholder="Your password" className={!errors.password ? inputClass + inputClassNormal : inputClass + inputClassError} />
-                {errors.password && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors.password.message}   </p>}
+                {errors?.password && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors?.password?.message}   </p>}
             </div>
             <div className="mb-6">
                 <div className="flex justify-between mb-2">
@@ -87,7 +111,7 @@ const Register = () => {
                             value === password.current || "The passwords do not match"
                     })}
                     type="password" id="rePassword" placeholder="Repeat Your password" className={!errors.password ? inputClass + inputClassNormal : inputClass + inputClassError} />
-                {errors.password_repeat && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors.password_repeat.message}  </p>}
+                {errors?.password_repeat && <p className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 mt-1"> {errors?.password_repeat?.message}  </p>}
             </div>
 
             {error && <div className="error-container text-sm mb-3 border border-red-300 px-2 py-1 text-red-700 animate-pulse bg-red-100 flex items-center gap-2">

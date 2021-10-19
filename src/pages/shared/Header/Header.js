@@ -45,7 +45,7 @@ const Header = () => {
                             <div className=" flex gap-1 items-center">
                                 {
                                     !user?.email ? <>
-                                        <Link className="ml-auto" to="/account"><button as className="px-3 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out font-medium text-sm">Sign Up/Sign In</button>
+                                        <Link className="ml-auto" to="/account"><button className="px-3 py-2 text-white bg-indigo-500 rounded-sm hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out font-medium text-sm">Sign Up/Sign In</button>
 
                                         </Link>
 
@@ -54,18 +54,15 @@ const Header = () => {
                                         <button type="button" className="relative ml-auto bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={handleToggle}>
                                             <span className="sr-only">Open user menu</span>
                                             <img className="h-8 w-8 rounded-full" src={user.photoURL} alt="" />
-                                            <span class="animate-ping absolute inline-flex h-2 w-2 -top-0 -right-0 rounded-full bg-green-700 "></span>
+                                            <span className="animate-ping absolute inline-flex h-2 w-2 -top-0 -right-0 rounded-full bg-green-700 "></span>
                                         </button></>
                                 }
-
-
 
                             </div>
 
                             <div className={show + " origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"} >
                                 {/* <!--Active: "bg-gray-100", Not Active: "" --> */}
-                                <a href="/" className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-700" onClick={handleToggle}>Your Profile</a>
-                                <a href="/" className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-700" onClick={handleToggle}>Settings</a>
+                                <Link to="/" className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-700" onClick={handleToggle}>{user?.displayName}</Link>
                                 <Link to="/account" className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-700" onClick={handleSignOut} >Sign out</Link>
                             </div>
                         </div>

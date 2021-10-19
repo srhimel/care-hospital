@@ -10,6 +10,7 @@ import Services from './pages/Services/Services';
 import Contact from './pages/Contact/Contact';
 import AuthProvider from './context/AuthContext';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import ServiceDetails from './pages/ServiceDetails/ServiceDetails';
 
 function App() {
 
@@ -21,12 +22,15 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <PrivateRoute path="/about-us">
+          <Route path="/about-us">
             <About />
-          </PrivateRoute>
+          </Route>
           <Route path="/services">
             <Services />
           </Route>
+          <PrivateRoute path="/service/:serviceId">
+            <ServiceDetails />
+          </PrivateRoute>
           <Route path="/contact-us">
             <Contact />
           </Route>
